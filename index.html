@@ -42,7 +42,7 @@ button:active{transform:scale(.985)}
   </section>
   <div class="controls">
     <button id="next">CHANGER DE DÉFI</button>
-    <div class="timer inactive" id="timer" title="Cliquer pour lancer">—</div>
+    <div class="timer" id="timer" title="Cliquer pour lancer ou mettre en pause">60s</div>
   </div>
 </main>
 
@@ -71,8 +71,8 @@ const exercises = [
 ]
 
 let lastKey="";
-let timerSeconds=null;
-let timerLeft=null;
+let timerSeconds=60;
+let timerLeft=60;
 let timerInterval=null;
 const card=document.getElementById("card");
 const challenge=document.getElementById("challenge");
@@ -131,7 +131,7 @@ function nextChallenge(){
     challenge.textContent=`Toute l’équipe fait ${n} ${ex.name}`;
   }
   explanation.textContent=ex.explain(n);
-  resetTimer(ex.time ? n : null);
+  resetTimer(ex.time ? n : 60);
 
   card.classList.remove("flash");
   void card.offsetWidth;
