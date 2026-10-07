@@ -48,19 +48,27 @@ button:active{transform:scale(.985)}
 
 <script>
 const exercises = [
-  {name:"squats", singular:"squat", counts:[5,8,10,12,15,20], explain:n=>`Debout, pieds écartés à peu près comme les épaules. Descendez comme pour vous asseoir sur une chaise, puis remontez. Chaque joueur en fait ${n}.`},
-  {name:"petits sauts", singular:"petit saut", counts:[10,15,20,25,30], explain:n=>`Restez sur place et faites de petits sauts légers. Chaque joueur en fait ${n}.`},
-  {name:"montées de genoux", singular:"montée de genou", counts:[10,15,20,25,30], explain:n=>`Debout, levez un genou puis l’autre, comme si vous marchiez sur place en montant les genoux. Chaque joueur fait ${n} répétitions au total.`},
-  {name:"talons-fesses", singular:"talon-fesse", counts:[10,15,20,25,30], explain:n=>`Debout, ramenez alternativement un talon vers la fesse opposée. Chaque joueur fait ${n} répétitions au total.`},
-  {name:"levers de bras", singular:"lever de bras", counts:[10,15,20,25], explain:n=>`Bras le long du corps, levez les deux bras au-dessus de la tête puis redescendez. Chaque joueur le fait ${n} fois.`},
-  {name:"pas latéraux", singular:"pas latéral", counts:[10,15,20,25], explain:n=>`Faites de petits pas de côté, à droite puis à gauche, sans courir. Chaque joueur fait ${n} pas au total.`},
-  {name:"touches d’épaules", singular:"touche d’épaule", counts:[10,15,20,25,30], explain:n=>`Touchez l’épaule gauche avec la main droite, puis l’épaule droite avec la main gauche. Chaque joueur fait ${n} touches au total.`},
-  {name:"équilibres", singular:"équilibre", counts:[5,10,15,20], explain:n=>`Levez un pied et tenez ${n} secondes sans le reposer. Chaque joueur tente le défi une fois.`, time:true},
-  {name:"chaise contre le mur", singular:"chaise contre le mur", counts:[10,15,20,25,30], explain:n=>`Dos contre un mur, descendez comme si vous étiez assis sur une chaise invisible et tenez ${n} secondes. Chaque joueur tente une fois.`, time:true},
-  {name:"bras devant", singular:"bras devant", counts:[10,15,20,25,30], explain:n=>`Tendez les deux bras devant vous à hauteur des épaules et gardez-les ainsi pendant ${n} secondes. Chaque joueur tente une fois.`, time:true},
-  {name:"bras sur les côtés", singular:"bras sur les côtés", counts:[10,15,20,25,30], explain:n=>`Tendez les bras à gauche et à droite à hauteur des épaules et gardez-les ainsi pendant ${n} secondes. Chaque joueur tente une fois.`, time:true},
-  {name:"bras en l’air", singular:"bras en l’air", counts:[10,15,20,25,30], explain:n=>`Levez les deux bras au-dessus de la tête et gardez-les tendus pendant ${n} secondes. Chaque joueur tente une fois.`, time:true}
-];
+  {name:"squats", counts:[15,20,25,30], explain:n=>`Debout, pieds écartés à peu près comme les épaules. Descendez les fesses vers l’arrière puis remontez. Chaque joueur en fait ${n}.`},
+  {name:"pompes", counts:[5,8,10,12,15], explain:n=>`Placez les mains au sol, corps bien droit. Descendez la poitrine vers le sol puis poussez pour remonter. Chaque joueur en fait ${n}.`},
+  {name:"burpees", counts:[5,6,8,10,12], explain:n=>`Depuis la position debout, posez les mains au sol, envoyez les pieds derrière, ramenez-les puis relevez-vous avec un petit saut. Chaque joueur en fait ${n}.`},
+  {name:"squats avec saut", counts:[8,10,12,15,20], explain:n=>`Faites un squat puis sautez en remontant. Atterrissez doucement avant de recommencer. Chaque joueur en fait ${n}.`},
+  {name:"fentes", counts:[10,12,16,20,24], explain:n=>`Faites un grand pas en avant, pliez les deux jambes puis revenez debout. Alternez jambe droite et jambe gauche. Chaque joueur fait ${n} répétitions au total.`},
+  {name:"montées de genoux rapides", counts:[30,40,50,60], explain:n=>`Courez sur place en montant les genoux assez haut. Comptez chaque montée de genou. Chaque joueur en fait ${n}.`},
+  {name:"talons-fesses rapides", counts:[30,40,50,60], explain:n=>`Courez sur place en ramenant alternativement les talons vers les fesses. Chaque joueur fait ${n} répétitions.`},
+  {name:"sauts pieds joints", counts:[20,25,30,40], explain:n=>`Gardez les pieds joints et faites de petits sauts rapides sur place. Chaque joueur en fait ${n}.`},
+  {name:"sauts écartés", counts:[20,25,30,40], explain:n=>`Sautez en écartant les jambes et en levant les bras, puis revenez pieds joints. Chaque joueur en fait ${n}.`},
+  {name:"montées sur la pointe des pieds", counts:[20,25,30,40], explain:n=>`Debout, montez sur la pointe des pieds puis redescendez lentement. Chaque joueur en fait ${n}.`},
+  {name:"genoux alternés en position de pompe", counts:[20,30,40,50], explain:n=>`Mettez-vous en position de pompe, bras tendus. Ramenez rapidement un genou vers la poitrine puis l’autre. Comptez chaque genou. Chaque joueur en fait ${n}.`},
+  {name:"pompes puis squats", counts:[5,8,10], explain:n=>`Chaque joueur fait ${n} pompes, se relève, puis fait immédiatement ${n*2} squats.`},
+  {name:"burpees puis squats", counts:[5,6,8], explain:n=>`Chaque joueur fait ${n} burpees puis enchaîne immédiatement avec ${n*2} squats.`},
+  {name:"squats puis sauts", counts:[15,20,25], explain:n=>`Chaque joueur fait ${n} squats puis ${Math.round(n/2)} sauts pieds joints sans longue pause.`},
+  {name:"chaise contre le mur", counts:[30,40,45,60], explain:n=>`Dos contre un mur, descendez comme si vous étiez assis sur une chaise invisible et tenez ${n} secondes. Chaque joueur tente une fois.`, time:true},
+  {name:"bras tendus sur les côtés", counts:[30,40,45,60], explain:n=>`Tendez les bras à gauche et à droite à hauteur des épaules et gardez-les immobiles pendant ${n} secondes.`, time:true},
+  {name:"équilibre sur un pied", counts:[20,30,40,45], explain:n=>`Levez un pied et tenez ${n} secondes sans le reposer. Après la moitié du temps, mettez les mains sur la tête.`, time:true},
+  {name:"squats sans arrêt", counts:[30,40,45,60], explain:n=>`Faites des squats continuellement pendant ${n} secondes, à votre rythme, sans vous arrêter.`, time:true},
+  {name:"montées de genoux sans arrêt", counts:[30,40,45,60], explain:n=>`Courez sur place en montant les genoux pendant ${n} secondes sans vous arrêter.`, time:true},
+  {name:"sauts écartés sans arrêt", counts:[30,40,45,60], explain:n=>`Enchaînez les sauts écartés pendant ${n} secondes sans pause.`, time:true}
+]
 
 let lastKey="";
 let timerSeconds=null;
